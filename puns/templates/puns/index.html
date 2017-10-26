@@ -1,15 +1,37 @@
 <html>
     <head>
-        <form action="/puns/" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit" />
-        </form>
+        {% load static %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href='{% static "style.css" %}'/>
 
     </head>
 
     <body>
-
+        <div class="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <form class="input" action="/puns/" method="post">
+                            <div class="input-group">
+                                {% csrf_token %}
+                                <input class="input" type="text" name="word" maxlength="100">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-light" value="Go!" />
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                    <div class="col col-1">
+                        <a href="/puns/"><span class="text-muted">Punline</span></a>
+                    </div>
+                    <div class="col-1">
+                       <a href="https://github.com/flame11st/punline"><span class="text-muted">GitHub</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 
