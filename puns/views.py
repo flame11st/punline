@@ -24,10 +24,7 @@ def get_word(request):
 def result(request, input_word):
     words = list(PunWord.objects.all())
     new_words = [word.word for word in words]
-    random.shuffle(new_words)
     output = (pun(new_words, input_word.lower()))
-    puns = output[0][:5]
-    details = output[1][:5]
     form = NameForm()
-    context = {'input_word': input_word, 'form': form, 'new_words': new_words, 'puns': puns, 'details': details}
+    context = {'input_word': input_word, 'form': form, 'new_words': new_words,'output': output}
     return render(request, 'puns/result.html', context)

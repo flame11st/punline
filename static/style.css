@@ -1,32 +1,49 @@
 body{
-    background-image: url(https://taxiservicemauritius.com/wp-content/uploads/2015/07/gray_background_gray_abstract_bright_hd-wallpaper-92500.jpg);
+    background-color: #ededed;
 }
 
 .navigation {
-  padding-top: 80px;
-  top: 0;
   width: 100%;
-  height: 140px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   background-color: #e3e3e3;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+  -webkit-box-shadow: -2px 5px 17px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 5px 17px -5px rgba(0,0,0,0.75);
+  box-shadow: -2px 5px 17px -5px rgba(0,0,0,0.75);
+}
+
+#input {
+    margin-bottom: 5rem;
 }
 
 .input {
+    border: 0;
     width: 100%;
     height: 40px;
+    -webkit-box-shadow: -2px 5px 13px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 5px 13px -8px rgba(0,0,0,0.75);
+    box-shadow: -2px 5px 13px -8px rgba(0,0,0,0.75);
 }
 
 .card{
+    -webkit-box-shadow: -2px 5px 17px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 5px 17px -5px rgba(0,0,0,0.75);
+    box-shadow: -2px 5px 17px -5px rgba(0,0,0,0.75);
+    border: 1;
+    border-color: whitesmoke;
     color: #4a4a4a;
-    border: 0;
-    border-radius: 0;
-    padding:15px 25px;
+    padding:0px;
+    margin-top: 2rem;
     background: whitesmoke;
-    text-align: center;
     font-size:19px;
 }
 
-#headers h2{
-    color: #4a4a4a;
+#cards {
+margin-bottom: 5rem;
+}
+
+.puns {
+    margin-bottom:30px;
+    font-size: 30px;
 }

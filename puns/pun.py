@@ -1,18 +1,40 @@
-def pun(words, input_word):
-    find_words = []
-    details = []
-    for word in words:
-        if input_word[len(input_word)-2::] == word[:2:]:
-            find_words.append(input_word[:len(input_word)-2:]+word)
-            details.append(input_word+' + '+word)
-        if input_word[len(input_word)-1::] == word[:1:]:
-            find_words.append(input_word[:len(input_word)-1:]+word)
-            details.append( input_word + ' + ' + word )
-        if input_word[:2:] == word[len(word)-2::]:
-            find_words.append(word+input_word[2::])
-            details.append( word + ' + ' + input_word )
-        if input_word[:1:] == word[len(word)-1::]:
-            find_words.append(word+input_word[1::])
-            details.append( word + ' + ' + input_word )
+import random
 
-    return find_words, details
+
+def pun(words, input_word):
+    find_words = []     #dict to return
+    parts = []      #for check if word is added in find words
+    count = 0
+    len_words = len(words)
+
+    for el in range(500):
+        ind = random.randint(0, len_words-1)
+
+        #random word
+        word = words[ind]
+
+        #check if word is added in find words
+        if parts.count(input_word + ' + ' + word) == 1 or parts.count(word + ' + ' + input_word) == 1: continue
+
+        #if we need only 6 words
+        if count >= 6:
+            return find_words
+
+        #algoritm for searching puns
+        if input_word[len(input_word)-2::] == word[:2:]:
+            find_words.append([input_word[:len(input_word)-2:]+word, input_word+' + '+word])
+            parts.append(input_word+' + '+word)
+            count += 1
+        if input_word[len(input_word)-1::] == word[:1:]:
+            find_words.append([input_word[:len(input_word)-1:]+word,input_word + ' + ' + word])
+            parts.append( input_word + ' + ' + word )
+            count += 1
+        if input_word[:2:] == word[len(word)-2::]:
+            find_words.append([word+input_word[2::], word + ' + ' + input_word])
+            parts.append( word + ' + ' + input_word )
+            count += 1
+        if input_word[:1:] == word[len(word)-1::]:
+            find_words.append([word+input_word[1::], word + ' + ' + input_word])
+            parts.append( word + ' + ' + input_word )
+            count += 1
+    return find_words

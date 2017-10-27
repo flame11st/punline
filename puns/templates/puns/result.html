@@ -7,57 +7,43 @@
     </head>
 
     <body>
-        <div class="navigation">
-            <div class="container">
+            <div class="navigation">
                 <div class="row">
-                    <div class="col-8">
-                        <form class="input" action="/puns/" method="post">
-                            <div class="input-group">
-                                {% csrf_token %}
-                                <input class="input" type="text" name="word" maxlength="100">
-                                <span class="input-group-btn">
-                                    <input type="submit" class="btn btn-light" value="Go!" />
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-2">
-                    </div>
-                    <div class="col-1">
+                    <div class="col col-lg-1">
                         <a href="/puns/"><span class="text-muted">Punline</span></a>
                     </div>
-                    <div class="col-1">
+                    <div class="col col-lg-1">
                        <a href="https://github.com/flame11st/punline"><span class="text-muted">GitHub</span></a>
                     </div>
                 </div>
             </div>
-        </div>
-
         <div class="container">
-            <div id="headers" class="row">
-                <div class="col-4">
-                   <h2>Puns</h2>
-                </div>
-                <div class="col-1">
-                </div>
-                <div class="col-4">
-                    <h2>Using words</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    {% for pun in puns %}
-                        <p class="card">{{pun}}</p>
-                    {% endfor %}
-                </div>
-                <div class="col-1">
-                </div>
-                <div class="col-4">
-                    {% for detail in details %}
-                        <p class="card">{{detail}}</p>
-                    {% endfor %}
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-8">
+                    <form id="input" class="input" action="/puns/" method="post">
+                        <div class="input-group">
+                            {% csrf_token %}
+                            <input class="input" type="text" name="word" maxlength="100">
+                            <span class="input-group-btn">
+                                <input type="submit" class="btn btn-light" value="Go!" />
+                            </span>
+                        </div>
+                    </form>
                 </div>
             </div>
+                <div id="cards" class="row">
+                    {% for el in output %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card p-3">
+                            <blockquote class="blockquote mb-0 card-body">
+                                <p class="puns">{{el.0}}</p>
+                                <p class="card-text"><small class="text-muted">description:  {{el.1}}</small></p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
         </div>
     </body>
 </html>
