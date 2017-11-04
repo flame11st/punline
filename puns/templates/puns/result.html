@@ -23,7 +23,7 @@
                     <form id="input" class="input" action="/puns/" method="post">
                         <div class="input-group">
                             {% csrf_token %}
-                            <input class="input" type="text" name="word" maxlength="100">
+                            <input id="search" class="input" type="text" name="word" maxlength="100"  value={{input_word}}>
                             <span class="input-group-btn">
                                 <input type="submit" class="btn btn-light" value="Go!" />
                             </span>
@@ -31,19 +31,23 @@
                     </form>
                 </div>
             </div>
-                <div id="cards" class="row">
-                    {% for el in output %}
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card p-3">
-                            <blockquote class="blockquote mb-0 card-body">
-                                <p class="puns">{{el.0}}</p>
-                                <p class="card-text"><small class="text-muted">description:  {{el.1}}</small></p>
-                            </blockquote>
-                        </div>
+            <div id="cards" class="row">
+                {% for el in output %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-3">
+                        <blockquote class="blockquote mb-0 card-body">
+                            <p class="puns">{{el.0}}</p>
+                            <p class="card-text"><small class="text-muted">description:  {{el.1}}</small></p>
+                        </blockquote>
                     </div>
-                    {% endfor %}
                 </div>
-
+                {% endfor %}
+            </div>
+            <div class="row justify-content-md-center">
+                <a class="repeat" href="/puns/res_{{input_word}}">
+                    <button type="button" class="btn btn-light">Repeat</button>
+                </a>
+            </div>
         </div>
     </body>
 </html>

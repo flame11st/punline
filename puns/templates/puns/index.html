@@ -23,7 +23,7 @@
                     <form id="input" class="input" action="/puns/" method="post">
                         <div class="input-group">
                             {% csrf_token %}
-                            <input class="input" type="text" name="word" maxlength="100">
+                            <input id="search" class="input" type="text" name="word" maxlength="100" placeholder="Enter your word here">
                             <span class="input-group-btn">
                                 <input type="submit" class="btn btn-light" value="Go!" />
                             </span>
