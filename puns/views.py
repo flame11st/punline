@@ -14,7 +14,7 @@ def get_word(request):
         # check whether it's valid:
         if form.is_valid():
             word = form.cleaned_data['word']
-            return HttpResponseRedirect('/res_%s/' % word)
+            return HttpResponseRedirect('/puns/res_%s/' % word)
     else:
         form = NameForm()
 
