@@ -3,30 +3,27 @@
         {% load static %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" href='{% static "style.css" %}'/>
-
+        <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+        <title>Punline - pun online</title>
     </head>
 
     <body>
-            <div class="navigation">
-                <div class="row">
-                    <div class="col col-lg-2 logo">
-                        <a href="/"><img src='{% static "logo.png" %}'></a>
-                    </div>
-                    <div class="col col-lg-1 github">
-                       <a href="https://github.com/flame11st/punline"><img src='{% static "github.png" %}'></a>
-                    </div>
-                </div>
+        <div class="row navigation">
+            <div class="col col-lg-2 logo">
+                <a href="/"><img src='{% static "logo.png" %}'></a>
             </div>
+            <div class="col col-lg-1 github">
+                <a href="https://github.com/flame11st/punline"><img src='{% static "github.png" %}'></a>
+            </div>
+        </div>
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col col-lg-8">
                     <form id="input" class="input" action="/" method="post">
-                        <div class="input-group">
+                        <div>
                             {% csrf_token %}
-                            <input id="search" class="input" type="text" name="word" maxlength="100"  value={{input_word}}>
-                            <span class="input-group-btn">
-                                <input type="submit" class="btn btn-light" value="Go!" />
-                            </span>
+                            <input id="search" class="input" type="text" name="word" maxlength="100" placeholder="Enter your word here">
+                            <input id="search-btn" type="submit" class="btn btn-light" value="Find puns" />
                         </div>
                     </form>
                 </div>
