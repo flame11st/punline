@@ -21,20 +21,20 @@ def pun(words, input_word):
             return find_words
 
         #algoritm for searching puns
-        if input_word[len(input_word)-2::] == word[:2:]:
-            find_words.append([input_word[:len(input_word)-2:]+word, input_word+' + '+word])
+        if input_word[-2::] == word[:2:]:
+            find_words.append([input_word[:-2:].capitalize()+word, input_word+' + '+word])
             parts.append(input_word+' + '+word)
             count += 1
-        if input_word[len(input_word)-1::] == word[:1:]:
-            find_words.append([input_word[:len(input_word)-1:]+word,input_word + ' + ' + word])
+        if input_word[-1::] == word[:1:]:
+            find_words.append([input_word[:-1:].capitalize()+word,input_word + ' + ' + word])
             parts.append( input_word + ' + ' + word )
             count += 1
-        if input_word[:2:] == word[len(word)-2::]:
-            find_words.append([word+input_word[2::], word + ' + ' + input_word])
+        if input_word[:2:] == word[-2::]:
+            find_words.append([word.capitalize()+input_word[2::], word + ' + ' + input_word])
             parts.append( word + ' + ' + input_word )
             count += 1
-        if input_word[:1:] == word[len(word)-1::]:
-            find_words.append([word+input_word[1::], word + ' + ' + input_word])
+        if input_word[:1:] == word[-1::]:
+            find_words.append([word.capitalize()+input_word[1::], word + ' + ' + input_word])
             parts.append( word + ' + ' + input_word )
             count += 1
     return find_words

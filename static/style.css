@@ -67,6 +67,20 @@ body{ background-color: #FDFDFD; }
 
 }
 
+.error{
+    -webkit-box-shadow:  rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
+    border: 1;
+    border-color: #F9F9F9;
+    text-align: center;
+    padding-top: 15px;
+    color: #4a4a4a;
+    margin-top: 2rem;
+    background: #FFFFFF;
+    font-size: 19px;
+}
+
 .card{
     -webkit-box-shadow:  rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
     -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
@@ -82,7 +96,6 @@ body{ background-color: #FDFDFD; }
 
 #cards {
     margin-bottom: 1rem;
-
 }
 
 .repeat{

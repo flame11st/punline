@@ -3,7 +3,7 @@ from .forms import NameForm
 from .models import PunWord
 from .pun import *
 from django.http import HttpResponseRedirect
-import random
+import re
 
 
 def get_word(request):
@@ -22,9 +22,14 @@ def get_word(request):
 
 
 def result(request, input_word):
+    pattern = r"[1-9]"
+    error = False
+
+    if re.search( pattern, input_word ): error = True
+
     words = list(PunWord.objects.all())
     new_words = [word.word for word in words]
     output = (pun(new_words, input_word.lower()))
     form = NameForm()
-    context = {'input_word': input_word, 'form': form, 'new_words': new_words,'output': output[:6]}
+    context = {'input_word': input_word, 'form': form, 'new_words': new_words,'output': output[:6],'error':error}
     return render(request, 'puns/result.html', context)
