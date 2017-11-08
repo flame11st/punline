@@ -7,7 +7,7 @@ def pun(words, input_word):
     count = 0
     len_words = len(words)
 
-    for el in range(500):
+    for el in range(1000):
         ind = random.randint(0, len_words-1)
 
         #random word
@@ -22,19 +22,19 @@ def pun(words, input_word):
 
         #algoritm for searching puns
         if input_word[-2::] == word[:2:]:
-            find_words.append([input_word[:-2:].capitalize()+word, input_word+' + '+word])
+            find_words.append([input_word.capitalize(), word[2::], input_word+' + '+word])
             parts.append(input_word+' + '+word)
             count += 1
         if input_word[-1::] == word[:1:]:
-            find_words.append([input_word[:-1:].capitalize()+word,input_word + ' + ' + word])
+            find_words.append([input_word.capitalize(), word[1::],input_word + ' + ' + word])
             parts.append( input_word + ' + ' + word )
             count += 1
         if input_word[:2:] == word[-2::]:
-            find_words.append([word.capitalize()+input_word[2::], word + ' + ' + input_word])
+            find_words.append([word[:-2:].capitalize(), input_word, word + ' + ' + input_word])
             parts.append( word + ' + ' + input_word )
             count += 1
         if input_word[:1:] == word[-1::]:
-            find_words.append([word.capitalize()+input_word[1::], word + ' + ' + input_word])
+            find_words.append([word[:-1:].capitalize(), input_word, word + ' + ' + input_word])
             parts.append( word + ' + ' + input_word )
             count += 1
     return find_words

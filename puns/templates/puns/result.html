@@ -41,8 +41,14 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="card p-3">
                             <blockquote class="blockquote mb-0 card-body">
-                                <p class="puns">{{el.0}}</p>
-                                <p class="card-text"><small class="text-muted">description:  {{el.1}}</small></p>
+                                <p class="puns">
+                                    {% if el.1 == input_word %}
+                                        <span style="color:#404043;">{{el.0}}</span><span style="color:#4242A7;">{{el.1}}</span>
+                                    {% else %}
+                                        <span style="color:#4242A7;">{{el.0}}</span><span style="color:#404043;">{{el.1}}</span>
+                                    {% endif %}
+                                </p>
+                                <p class="card-text"><small class="text-muted">description:  {{el.2}}</small></p>
                             </blockquote>
                         </div>
                     </div>
