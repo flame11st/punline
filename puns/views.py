@@ -31,5 +31,6 @@ def result(request, input_word):
     new_words = [word.word for word in words]
     output = (pun(new_words, input_word.lower()))
     form = NameForm()
-    context = {'input_word': input_word, 'form': form, 'new_words': new_words,'output': output[:6],'error':error}
+    context = {'input_word': input_word, 'form': form, 'new_words': new_words,
+               'input_word_check': input_word.lower(), 'output': output[:6],'error':error}
     return render(request, 'puns/result.html', context)
