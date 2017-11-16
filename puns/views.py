@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from .forms import NameForm
-from .models import PunWord
+from .models import PunWordEn,PunWordRu
 from .pun import *
 from django.http import HttpResponseRedirect
 import re
@@ -14,23 +14,41 @@ def get_word(request):
         # check whether it's valid:
         if form.is_valid():
             word = form.cleaned_data['word']
-            return HttpResponseRedirect('/res_%s/' % word)
+            comb = 'y'if form.cleaned_data['comb'] else 'n'
+            return HttpResponseRedirect( '/res_%s_%s/'% (comb, word) )
     else:
         form = NameForm()
 
     return render(request, 'puns/index.html', {'form': form})
 
 
-def result(request, input_word):
+def result_en(request, input_word, comb):
     pattern = r"[1-9]"
     error = False
-
+    combi_pun = comb != 'y'
     if re.search( pattern, input_word ): error = True
 
-    words = list(PunWord.objects.all())
+    words = list(PunWordEn.objects.all()) if combi_pun else list(PunWordRu.objects.all())
     new_words = [word.word for word in words]
-    output = (pun(new_words, input_word.lower()))
+    output = (pun(new_words, input_word.lower(), comb == 'y'))
     form = NameForm()
     context = {'input_word': input_word, 'form': form, 'new_words': new_words,
-               'input_word_check': input_word.lower(), 'output': output[:6],'error':error}
+               'input_word_check': input_word.lower(), 'output': output[:6],'error':error,
+               'comb': comb}
+    return render(request, 'puns/result.html', context)
+
+
+def result_ru(request, input_word, comb):
+    pattern = r"[1-9]"
+    error = False
+    combi_pun = comb != 'y'
+    if re.search( pattern, input_word ): error = True
+
+    words = list(PunWordRu.objects.all()) if combi_pun else list(PunWordEn.objects.all())
+    new_words = [word.word for word in words]
+    output = (pun(new_words, input_word.lower(),comb == 'y'))
+    form = NameForm()
+    context = {'input_word': input_word, 'form': form, 'new_words': new_words,
+               'input_word_check': input_word.lower(), 'output': output[:6],'error':error,
+               'comb':comb,}
     return render(request, 'puns/result.html', context)

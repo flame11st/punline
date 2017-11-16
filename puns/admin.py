@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import PunWord
+from .models import PunWordEn,PunWordRu
 
 # Register your models here.
 admin.site.register([
-    PunWord,
+    PunWordEn,
+    PunWordRu,
     ])
