@@ -146,12 +146,12 @@ body{ background-color: #FDFDFD; }
       transition: left .3s ease, background .3s ease, box-shadow .1s ease;
     }
   .custom-checkbox .custom-control-input:checked ~ .custom-control-indicator {
-    background-color: #84c7c1;
+    background-color: #98cbf2;
     background-image: none;
     box-shadow: none !important;
   }
     .custom-checkbox .custom-control-input:checked ~ .custom-control-indicator:after {
-      background-color: #84c7c1;
+      background-color: #4fb9f2;
       left: 15px;
     }
   .custom-checkbox .custom-control-input:focus ~ .custom-control-indicator {
