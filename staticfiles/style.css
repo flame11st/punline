@@ -41,10 +41,12 @@ body{ background-color: #FDFDFD; }
 #search{
     position: relative;
     padding-left: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #search-btn{
     height: 36px;
+    font-family: 'Roboto', sans-serif;
     position: absolute;
     top: 0;
     right: 0;
@@ -92,6 +94,7 @@ body{ background-color: #FDFDFD; }
     margin-top: 2rem;
     background: #FFFFFF;
     font-size:19px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #cards {
@@ -103,6 +106,7 @@ body{ background-color: #FDFDFD; }
     -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
     weight: 300px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .puns {
@@ -160,4 +164,10 @@ body{ background-color: #FDFDFD; }
 
   #checkbox{
     margin-top:4px;
+  }
+
+  .description{
+    margin-top:60px;
+    margin-left:50px;
+    font-family: 'Roboto', sans-serif;
   }
