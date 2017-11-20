@@ -4,7 +4,7 @@ transl = {
     'w': 'в', 'e': 'е', 'r': 'р', 't': 'т', 'u': 'у', 'i': 'и', 'o': 'о', 'p': 'п', 'a': 'а', 's': 'с', 'd': 'д',
     'f': 'ф', 'g': 'г', 'h': 'х', 'k': 'к', 'l': 'л', 'z': 'з', 'c': 'ц', 'v': 'в', 'b': 'б', 'n': 'н', 'm': 'м',
     'ch': 'ч', 'sh': 'ш', 'к': 'k', 'е': 'e', 'н': 'n', 'г': 'g', 'ф': 'f', 'в': 'v', 'а':'a', 'п': 'p', 'р': 'r',
-    'о': 'o', 'л': 'l', 'д': 'd', 'м': 'm', 'и': 'i', 'т': 't', 'б': 'b',
+    'о': 'o', 'л': 'l', 'д': 'd', 'м': 'm', 'и': 'i', 'т': 't', 'б': 'b','с':'s',
 }
 
 
@@ -37,7 +37,7 @@ def pun(words, input_word, bool):
             except KeyError:
                 pass
             try:
-                if transl[input_word[-1::]] == word[:1:]:
+                if transl[input_word[-1::]] == word[:1:] and word[:2:] != 'sh':
                     find_words.append( [input_word.capitalize(), word[1::], input_word + ' + ' + word] )
                     parts.append( input_word + ' + ' + word )
                     count += 1
