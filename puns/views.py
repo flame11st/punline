@@ -4,6 +4,8 @@ from .models import PunWordEn,PunWordRu
 from .pun import *
 from django.http import HttpResponseRedirect
 import re
+from django.http import HttpResponse
+from django.views import *
 
 
 def get_word(request):
@@ -15,12 +17,19 @@ def get_word(request):
         if form.is_valid():
             word = form.cleaned_data['word']
             comb = 'y'if form.cleaned_data['comb'] else 'n'
-            return HttpResponseRedirect( '/res_%s_%s/'% (comb, word) )
+            handler404 = 'puns.views.error_res'
+            try:
+                return HttpResponseRedirect( '/res_%s_%s/'% (comb, word) )
+            except django.views.defaults.page_not_found():
+                return HttpResponseRedirect('/res_n_q/')
     else:
         form = NameForm()
 
     return render(request, 'puns/index.html', {'form': form})
 
+
+def error_res(request):
+    return HttpResponse("error")
 
 def result_en(request, input_word, comb):
     pattern = r"[1-9]"
