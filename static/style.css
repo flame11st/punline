@@ -10,7 +10,7 @@ body{ background-color: #FDFDFD; }
   height: 60px;
   line-height: 60px;
   background-color: #FFFFFF;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   margin-left:0px;
     -webkit-box-shadow:  rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
     -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(0, 0, 0, 0.12) 0px 3px 4px;
@@ -31,11 +31,6 @@ body{ background-color: #FDFDFD; }
 	margin-top:7.5px;
 	width: 45px;
 	height: 45px;
-}
-
-
-#input {
-    margin-bottom: 2rem;
 }
 
 #search{
@@ -129,7 +124,7 @@ body{ background-color: #FDFDFD; }
     background-color: #818181;
     border-radius: 15px;
     margin-right: 10px;
-    -webkit-transition: background .3s ease;
+    -webkit-transition: backgro und .3s ease;
     transition: background .3s ease;
     vertical-align: middle;
     margin: 0 16px;
