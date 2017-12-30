@@ -1,1 +1,1 @@
-web: gunicorn punline.wsgi --log-file -
+web: newrelic-admin run-program gunicorn punline.wsgi
